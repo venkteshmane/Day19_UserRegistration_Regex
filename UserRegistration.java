@@ -3,8 +3,8 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class UserRegistrationSystem {
-//Declaring patterns
-    // UC1
+//Declaring Regex patterns
+    //UC1
     public static final String firstNameRegexPattern = "^[A-Z]{1}[a-z]{3,}$";
     //UC2
     public static final String lastNameRegexPattern= "^[A-Z]{1}[a-z]{3,}$";
@@ -19,9 +19,8 @@ public class UserRegistrationSystem {
     //UC6-Rule2
     public static final String passwordRegexPatternRule2 = "^[A-Z]{1,}[a-z]{7,}$";
        //    String passwordPatternSecondRule="^[A-Z][a-zA-Z0-9]{8,}";
-
-
-
+    //UC7-Rule3
+    public static final String getPasswordRegexPatternRule3 = "^[A-Z]{1,}[0-9]{1,}[a-z]{6,}$";
 
 
     //  UC1- method to validate first name
@@ -115,6 +114,21 @@ public class UserRegistrationSystem {
         }
     }
 
+    // UC7- Rule3-method to validate password of minimum 1 numeric character
+    public static void validatePasswordRule3() {
+        System.out.print("Enter Password :- ");
+        Scanner sc = new Scanner(System.in);
+        String passWord = sc.next();
+        Pattern pattern = Pattern.compile(getPasswordRegexPatternRule3);
+        Matcher matcher = pattern.matcher(passWord);
+        boolean retrurn = matcher.matches();
+        if (retrurn) {
+            System.out.println("Password is Valid");
+        } else {
+            System.out.println("Password is Invalid");
+        }
+    }
+
         public static void main(String args[]) {
             System.out.println("Welcome to User Registration System Program");
             validateFirstName();
@@ -123,5 +137,6 @@ public class UserRegistrationSystem {
             validateMobileNumber();
             validatePasswordRule1();
             validatePasswordRule2();
+            validatePasswordRule3();
     }
  }
