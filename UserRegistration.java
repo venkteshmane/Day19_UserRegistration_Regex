@@ -24,6 +24,8 @@ public class UserRegistrationSystem {
     //UC8-Rule4
     // public static final String passwordRegexPatternRule4 = "^[A-Z0-9a-z.%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}";
     public static final String passwordRegexPatternRule4 = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()<>]).{8,}$";
+    //UC9
+    UserRegistrationSystem user = new UserRegistrationSystem();
 
 
     //  UC1- method to validate first name
@@ -186,6 +188,6 @@ public class UserRegistrationSystem {
                     break;
             }
         }
-        while(choice != 8);
+        while (choice != 8);
     }
 }
